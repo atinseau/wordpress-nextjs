@@ -1,0 +1,5 @@
+wp-frontend/node_modules
+wp/vendor
+wp/.env
+wp/node_modules
+
