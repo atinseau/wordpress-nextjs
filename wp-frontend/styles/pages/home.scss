@@ -1,0 +1,20 @@
+
+
+main {
+	padding: 20px;
+	> h1 {
+		background-color: #f7f7f7;
+		padding: 10px;
+		margin-bottom: 20px;
+		text-align: center;
+		font-size: 28px;
+	}
+
+	.pages ul {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		column-gap: 20px;
+		row-gap: 20px;
+		@import "../components/page-item";
+	}
+}
