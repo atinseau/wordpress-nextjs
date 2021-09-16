@@ -10,8 +10,8 @@ const DEFAULT_PAGE = `
 `
 
 export const getPagesBy = gql`
-	query ($id: ID) {
-		pageBy(id: $id) {
+	query ($slot: String) {
+		pageBy(slot: $slot) {
 			${DEFAULT_PAGE}
 		}
 	}

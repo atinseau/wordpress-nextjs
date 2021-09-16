@@ -1,4 +1,5 @@
 wp-frontend/node_modules
+wp-frontend/.next
 wp/vendor
 wp/.env
 wp/node_modules

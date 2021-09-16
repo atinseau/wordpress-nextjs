@@ -1,18 +1,21 @@
+import { getPagesBy, qfetch } from "@request";
 
 const Slot = ({ data }) => {
 	
 	console.log(data)
 
 	return (
-		<h1>salut</h1>
+		<h1>voici le contenu de la page</h1>
 	)
 }
 
-export function getServerSideProps({params}) {
+export async function getServerSideProps({params}) {
 	// res.statusCode = 302
 	// res.setHeader('Location', `/`)
 
-	console.log(params.slot)
+	const slot = params.slot;
+
+	const data = await qfetch(getPagesBy, { slot })
 
 	return {
 		props: {
