@@ -1,20 +1,14 @@
-import Link from 'next/link'
+import Content from 'components/block/Content';
 import parse from 'html-react-parser';
+import Link from "next/link"
 
 const Page = ({ data }) => {
+	console.log(data)
 	return (
-		<Link href={{
-			pathname: data.slug,
-			query: {
-				id: data.id
-			}
-		}}>
-			<li className="page-item">
-				<h3>{data.title}</h3>
-				{parse(data.excerpt)}
-			</li>
-		</Link>
+		<main>
+			<Content raw={data.raw}/>
+		</main>
 	)
 }
 
-export default Page
+export default Page;

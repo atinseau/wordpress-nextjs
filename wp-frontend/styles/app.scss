@@ -10,4 +10,6 @@ li {
 	list-style: none;
 }
 
+@import "components/block";
 @import "pages/home";
+@import "pages/slot";

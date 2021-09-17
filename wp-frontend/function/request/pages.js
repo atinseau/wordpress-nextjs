@@ -5,14 +5,22 @@ const DEFAULT_PAGE = `
 	slug
 	title
 	id
-	content
+	raw
 	excerpt
 `
 
 export const getPagesBy = gql`
 	query ($slot: String) {
-		pageBy(slot: $slot) {
+		pageBy(uri: $slot) {
 			${DEFAULT_PAGE}
+			author {
+				node {
+					name
+					avatar {
+						url
+					}
+				}
+			}
 		}
 	}
 `

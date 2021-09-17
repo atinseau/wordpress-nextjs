@@ -1,45 +1,31 @@
 import { getPagesBy, qfetch } from "@request";
+import Page from "components/post-types/pages/Page";
 
 const Slot = ({ data }) => {
-	
-	console.log(data)
 
 	return (
-		<h1>voici le contenu de la page</h1>
+		<Page data={data}/>
 	)
 }
 
-export async function getServerSideProps({params}) {
-	// res.statusCode = 302
-	// res.setHeader('Location', `/`)
+export async function getServerSideProps({params, res}) {
+	
 
 	const slot = params.slot;
+	const {pageBy: data} = await qfetch(getPagesBy, {slot})
 
-	const data = await qfetch(getPagesBy, { slot })
+	if (!data) {
+		res.statusCode = 302
+		res.setHeader('Location', `/404`)
+		return { props: {}}
+	}
 
 	return {
 		props: {
-			data: {
-				id: "salut"
-			}
+			data
 		}
 	}
 }
 
-// export function getStaticPaths (e) {
-// 	return {
-// 		paths: [],
-// 		fallback: 'blocking'
-// 	}
-// }
-
-// export async function getStaticProps (context) {
-// 	console.log(context)
-// 	return {
-// 		props: {
-			
-// 		}
-// 	}
-// }
 
 export default Slot
